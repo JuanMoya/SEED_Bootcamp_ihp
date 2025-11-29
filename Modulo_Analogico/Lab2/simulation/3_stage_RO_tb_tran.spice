@@ -1,0 +1,47 @@
+** sch_path: /home/juan/Documents/Workshop_ihp/Modulo_Analogico/Lab2/3_stage_RO_tb_tran.sch
+**.subckt 3_stage_RO_tb_tran
+V1 VSS GND 0
+V2 VDD VSS 1.5
+* noconn n1
+x1 VDD VSS n1 3_stage_RO
+**** begin user architecture code
+
+
+.tran 1n 10u
+.save all
+.ic V(n1)=0
+
+
+
+.lib cornerMOSlv.lib mos_tt
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  /home/juan/Documents/Workshop_ihp/Modulo_Analogico/Lab2/3_stage_RO.sym # of pins=3
+** sym_path: /home/juan/Documents/Workshop_ihp/Modulo_Analogico/Lab2/3_stage_RO.sym
+** sch_path: /home/juan/Documents/Workshop_ihp/Modulo_Analogico/Lab2/3_stage_RO.sch
+.subckt 3_stage_RO VDD VSS n1
+*.iopin VDD
+*.iopin VSS
+*.iopin n1
+x1 n1 VDD VSS n2 inverter
+x2 n2 VDD VSS n3 inverter
+x3 n3 VDD VSS n1 inverter
+.ends
+
+
+* expanding   symbol:  /home/juan/Documents/Workshop_ihp/Modulo_Analogico/Lab2/inverter.sym # of pins=4
+** sym_path: /home/juan/Documents/Workshop_ihp/Modulo_Analogico/Lab2/inverter.sym
+** sch_path: /home/juan/Documents/Workshop_ihp/Modulo_Analogico/Lab2/inverter.sch
+.subckt inverter Vin VDD VSS Vout
+*.ipin Vin
+*.iopin VDD
+*.iopin VSS
+*.iopin Vout
+XM1 Vout Vin VSS VSS sg13_lv_nmos w=1u l=1u ng=1 m=1
+XM2 Vout Vin VDD VDD sg13_lv_pmos w=3u l=1u ng=1 m=1
+.ends
+
+.GLOBAL GND
+.end

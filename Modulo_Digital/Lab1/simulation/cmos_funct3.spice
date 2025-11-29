@@ -1,0 +1,19 @@
+** sch_path: /home/juan/Documents/Digital_module/Lab1/cmos_funct3.sch
+.subckt cmos_funct3 Q B C D A VDD VSS
+*.opin Q
+*.ipin B
+*.ipin C
+*.ipin D
+*.ipin A
+*.ipin VDD
+*.ipin VSS
+M1 net1 C VDD VDD sg13_lv_pmos w=1u l=0.13u ng=1 m=1
+M2 net2 B VDD VDD sg13_lv_pmos w=1u l=0.13u ng=1 m=1
+M3 net2 D net1 VDD sg13_lv_pmos w=1u l=0.13u ng=1 m=1
+M4 Q A net2 VDD sg13_lv_pmos w=1u l=0.13u ng=1 m=1
+M5 Q B net3 VSS sg13_lv_nmos w=1u l=0.13u ng=1 m=1
+M6 Q A VSS VSS sg13_lv_nmos w=1u l=0.13u ng=1 m=1
+M7 net3 C VSS VSS sg13_lv_nmos w=1u l=0.13u ng=1 m=1
+M8 net3 D VSS VSS sg13_lv_nmos w=1u l=0.13u ng=1 m=1
+**.ends
+.end

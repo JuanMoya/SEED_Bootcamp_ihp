@@ -1,0 +1,47 @@
+** sch_path: /home/juan/Documents/Workshop_ihp/Modulo_Analogico/Lab4/current_mirror_improved.sch
+**.subckt current_mirror_improved
+Vdd v_dd GND 1.5
+Ibias v_dd v_gs 20u
+Vout1 out1 GND 0.6
+Vout2 out2 GND 0.6
+Vout3 out3 GND 0.6
+.save v(out1)
+.save v(out2)
+.save v(out3)
+.save v(v_gs)
+Viout1 out1 net1 0
+.save i(viout1)
+Viout2 out2 net2 0
+.save i(viout2)
+Viout3 out3 net3 0
+.save i(viout3)
+XM1 v_gs v_gs GND GND sg13_lv_nmos w=1u l=1u ng=1 m=1
+XM2 net1 v_gs GND GND sg13_lv_nmos w=1u l=1u ng=1 m=1
+XM3 net2 v_gs GND GND sg13_lv_nmos w=2u l=1u ng=1 m=1
+XM4 net3 v_gs GND GND sg13_lv_nmos w=4u l=1u ng=1 m=1
+**** begin user architecture code
+
+
+.temp 27
+.control
+save all
+
+op
+write current_mirror_improved.raw
+dc Vout1 0 1.5 10m
+plot i(viout1) vs v(out1)
+dc Vout2 0 1.5 10m
+plot i(viout2) vs v(out2)
+dc Vout3 0 1.5 10m
+plot i(viout3) vs v(out3)
+
+.endc
+
+
+
+.lib cornerMOSlv.lib mos_tt
+
+**** end user architecture code
+**.ends
+.GLOBAL GND
+.end

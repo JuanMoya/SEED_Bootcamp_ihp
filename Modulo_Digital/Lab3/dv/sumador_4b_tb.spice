@@ -1,0 +1,40 @@
+.lib /foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+.include /foss/pdks/sky130A/libs.ref/sky130_fd_sc_hd/spice/sky130_fd_sc_hd.spice
+
+** Cambie la carpeta RUN_XXX por su carpeta
+.include ../runs/RUN_2025-10-27_18-13-37/final/spice/sumador_4b.spice
+
+VCC VCC GND DC 1.8
+
+* Señal de reloj (periodo 10ns, 50% duty cycle)
+Vclk clk 0 PULSE(0 1.8 0 0.1n 0.1n 5n 10n)
+
+* Señal de reset
+Vrst rst 0 PWL(0n 1.8 15n 1.8 15.1n 0)
+
+* Señales de entrada A[3:0]
+Va0 a0 0 PWL(0n 0 25n 0 25.1n 1.8 35n 1.8 35.1n 0 45n 0 45.1n 0 55n 0 55.1n 0)
+Va1 a1 0 PWL(0n 0 25n 0 25.1n 0 35n 0 35.1n 1.8 45n 1.8 45.1n 0 55n 0 55.1n 1)
+Va2 a2 0 PWL(0n 0 25n 0 25.1n 0 35n 0 35.1n 0 45n 0 45.1n 1.8 55n 1.8 55.1n 0)
+Va3 a3 0 PWL(0n 0 25n 0 25.1n 0 35n 0 35.1n 0 45n 0 45.1n 1.8 55n 1.8 55.1n 1)
+
+* Señales de entrada B[3:0]
+Vb0 b0 0 PWL(0n 0 25n 0 25.1n 0 35n 0 35.1n 1.8 45n 1.8 45.1n 1.8 55n 1.8 55.1n 1)
+Vb1 b1 0 PWL(0n 0 25n 0 25.1n 1.8 35n 1.8 35.1n 1.8 45n 1.8 45.1n 0 55n 0 55.1n 0)
+Vb2 b2 0 PWL(0n 0 25n 0 25.1n 0 35n 0 35.1n 0 45n 0 45.1n 1.8 55n 1.8 55.1n 1)
+Vb3 b3 0 PWL(0n 0 25n 0 25.1n 0 35n 0 35.1n 0 45n 0 45.1n 0 55n 0 55.1n 0)
+
+* Acarreo de entrada
+Vcin cin 0 PWL(0n 0 25n 0 25.1n 0 35n 0 35.1n 1.8 45n 1.8 45.1n 0 55n 0 55.1n 1)
+
+* Instancia el circuito bajo prueba
+X1 GND VCC a0 a1 a2 a3 b0 b1 b2 b3 cin clk cout rst sum0 sum1 sum2 sum3 sumador_4b 
+
+.control
+tran 0.01n 100n
+save all
+plot clk rst+2 a0+4 a1+6 a2+8 a3+10 b0+12 b1+14 b2+16 b3+18 cin+20 sum0+22 sum1+24 sum2+26 sum3+28 cout+30
+.endc
+.end
+
+

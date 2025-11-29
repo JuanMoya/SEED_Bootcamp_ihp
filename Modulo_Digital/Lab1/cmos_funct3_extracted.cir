@@ -1,0 +1,20 @@
+* Extracted by KLayout with SG13G2 LVS runset on : 04/11/2025 08:27
+
+.SUBCKT cmos_funct3
+M$1 \$2 \$4 \$3 \$1 sg13_lv_nmos L=0.13u W=1u AS=0.34p AD=0.34p PS=2.68u
++ PD=2.68u
+M$2 \$3 \$5 \$1 \$1 sg13_lv_nmos L=0.13u W=1u AS=0.34p AD=0.34p PS=2.68u
++ PD=2.68u
+M$3 \$3 \$6 \$1 \$1 sg13_lv_nmos L=0.13u W=1u AS=0.34p AD=0.34p PS=2.68u
++ PD=2.68u
+M$4 \$2 \$7 \$1 \$1 sg13_lv_nmos L=0.13u W=1u AS=0.34p AD=0.34p PS=2.68u
++ PD=2.68u
+M$5 \$12 \$4 \$13 \$12 sg13_lv_pmos L=0.13u W=1u AS=0.34p AD=0.34p PS=2.68u
++ PD=2.68u
+M$6 \$12 \$5 \$14 \$12 sg13_lv_pmos L=0.13u W=1u AS=0.34p AD=0.34p PS=2.68u
++ PD=2.68u
+M$7 \$14 \$6 \$13 \$12 sg13_lv_pmos L=0.13u W=1u AS=0.34p AD=0.34p PS=2.68u
++ PD=2.68u
+M$8 \$13 \$7 \$2 \$12 sg13_lv_pmos L=0.13u W=1u AS=0.34p AD=0.34p PS=2.68u
++ PD=2.68u
+.ENDS cmos_funct3

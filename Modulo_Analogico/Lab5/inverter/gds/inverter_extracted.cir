@@ -1,0 +1,6 @@
+* Extracted by KLayout with SG13G2 LVS runset on : 10/11/2025 12:09
+
+.SUBCKT inverter
+M$1 \$1 \$3 \$2 \$1 sg13_lv_nmos L=1u W=1u AS=0.34p AD=0.34p PS=2.68u PD=2.68u
+M$2 \$4 \$3 \$2 \$4 sg13_lv_pmos L=1u W=3u AS=1.02p AD=1.02p PS=6.68u PD=6.68u
+.ENDS inverter

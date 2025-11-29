@@ -1,0 +1,33 @@
+** sch_path: /home/juan/Documents/Digital_module/Lab1/pex/cmos_funct3_tb.sch
+**.subckt cmos_funct3_tb
+V1 VDD GND 1.5
+V3 A GND pulse 0 1.5 '0.495/ 100e6 ' '0.01/100e6 ' '0.01/100e6 ' '0.49/100e6 ' '1/100e6 '
+V2 B GND pulse 0 1.5 '0.495/ 50e6 ' '0.01/50e6 ' '0.01/50e6 ' '0.49/50e6 ' '1/50e6 '
+V4 C GND pulse 0 1.5 '0.495/ 25e6 ' '0.01/25e6 ' '0.01/25e6 ' '0.49/25e6 ' '1/25e6 '
+V5 D GND pulse 0 1.5 '0.495/ 12.5e6 ' '0.01/12.5e6 ' '0.01/12.5e6 ' '0.49/12.5e6 ' '1/12.5e6 '
+V6 VSS GND 0
+X1 C B D A Q VDD VSS cmos_funct3
+**** begin user architecture code
+
+
+.control
+tran 0.01n 80n
+plot A B+2 C+4 D+6 Q+8
+.endc
+
+
+
+
+.lib cornerMOSlv.lib mos_tt
+
+
+
+
+.include /home/juan/Documents/Digital_module/Lab1/pex/cmos_funct3.spice
+Xx1 Q B C D A VDD VSS cmos_funct3
+
+**** end user architecture code
+**.ends
+.GLOBAL VDD
+.GLOBAL GND
+.end

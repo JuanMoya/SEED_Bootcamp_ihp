@@ -1,0 +1,48 @@
+** sch_path: /home/juan/Documents/Digital_module/Lab1/cmos_funct2_tb.sch
+**.subckt cmos_funct2_tb
+V1 VDD GND 1.5
+V3 A GND pulse 0 1.5 '0.495/ 100e6 ' '0.01/100e6 ' '0.01/100e6 ' '0.49/100e6 ' '1/100e6 '
+V2 B GND pulse 0 1.5 '0.495/ 50e6 ' '0.01/50e6 ' '0.01/50e6 ' '0.49/50e6 ' '1/50e6 '
+V4 C GND pulse 0 1.5 '0.495/ 25e6 ' '0.01/25e6 ' '0.01/25e6 ' '0.49/25e6 ' '1/25e6 '
+V5 D GND pulse 0 1.5 '0.495/ 12.5e6 ' '0.01/12.5e6 ' '0.01/12.5e6 ' '0.49/12.5e6 ' '1/12.5e6 '
+x1 C B D A Q cmos_funct2
+**** begin user architecture code
+
+
+.control
+tran 0.01n 80n
+plot A B+2 C+4 D+6 Q+8
+.endc
+
+
+
+
+.lib cornerMOSlv.lib mos_tt
+
+
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  cmos_funct2.sym # of pins=5
+** sym_path: /home/juan/Documents/Digital_module/Lab1/cmos_funct2.sym
+** sch_path: /home/juan/Documents/Digital_module/Lab1/cmos_funct2.sch
+.subckt cmos_funct2 C B D A Q
+*.opin Q
+*.ipin B
+*.ipin C
+*.ipin D
+*.ipin A
+XM1 net1 C VDD VDD sg13_lv_pmos w=1u l=0.13u ng=1 m=1
+XM2 net2 B VDD VDD sg13_lv_pmos w=1u l=0.13u ng=1 m=1
+XM3 net2 D net1 VDD sg13_lv_pmos w=1u l=0.13u ng=1 m=1
+XM4 Q A net2 VDD sg13_lv_pmos w=1u l=0.13u ng=1 m=1
+XM5 Q B net3 GND sg13_lv_nmos w=1u l=0.13u ng=1 m=1
+XM6 Q A GND GND sg13_lv_nmos w=1u l=0.13u ng=1 m=1
+XM7 net3 C GND GND sg13_lv_nmos w=1u l=0.13u ng=1 m=1
+XM8 net3 D GND GND sg13_lv_nmos w=1u l=0.13u ng=1 m=1
+.ends
+
+.GLOBAL VDD
+.GLOBAL GND
+.end
