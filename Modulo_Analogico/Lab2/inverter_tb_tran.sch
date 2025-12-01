@@ -39,7 +39,7 @@ C {gnd.sym} -1140 -220 0 0 {name=l1 lab=GND}
 C {lab_wire.sym} -1040 -370 0 0 {name=p9 sig_type=std_logic lab=VDD}
 C {lab_wire.sym} -960 -370 0 0 {name=p10 sig_type=std_logic lab=Vin}
 C {code_shown.sym} -260 -540 0 0 {name=SPICE only_toplevel=false value="
-.tran 1n 10u
+.tran 10n 10u
 .save all
 "}
 C {devices/code_shown.sym} -1020 -150 0 0 {name=MODEL only_toplevel=true

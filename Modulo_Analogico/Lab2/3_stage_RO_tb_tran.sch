@@ -22,7 +22,7 @@ C {lab_wire.sym} 190 -360 0 0 {name=p1 sig_type=std_logic lab=VDD}
 C {lab_wire.sym} 190 -140 2 1 {name=p2 sig_type=std_logic lab=VSS}
 C {lab_wire.sym} 360 -260 0 1 {name=p3 sig_type=std_logic lab=n1}
 C {code_shown.sym} 340 -100 0 0 {name=SPICE only_toplevel=false value="
-.tran 1n 10u
+.tran 10n 0.5u
 .save all
 .ic V(n1)=0
 "}
