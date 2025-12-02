@@ -1,0 +1,3 @@
+| units: 0.5 tech: ihp-sg13g2 format: MIT
+x Vin VSS Vout VSS s=13600,536 d=13600,536 l=200 w=200 x=65 y=-460 sg13_lv_nmos
+x Vin VDD Vout VDD s=40800,1336 d=40800,1336 l=200 w=600 x=68 y=0 sg13_lv_pmos
